@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Prize</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f0f2f5;
+            margin: 50px;
+        }
+
+        #prize-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .prize {
+            width: 120px;
+            height: 180px;
+            border: 2px solid #1877f2;
+            border-radius: 8px;
+            margin: 10px;
+            cursor: pointer;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .prize-inner {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #000000;
+            background-color: #1877f2;
+            position: absolute;
+            backface-visibility: hidden;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .prize-front {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #000000;
+            background-color: rgba(24, 119, 242, 0.7); /* Opaque front color */
+            position: absolute;
+            backface-visibility: hidden;
+        }
+
+        .prize-back {
+            transform: rotateY(180deg);
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            display: none;
+            background-color: #1877f2;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+        }
+
+        #continue-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4caf50;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="prize-container">
+	<h1>Choose a Gift by clicking on one card</h1>
+        <div class="prize" onclick="choosePrize('GH¢ 105')">
+            <div class="prize-inner">
+                <div class="prize-front">GH¢ 105</div>
+                <div class="prize-back">GH¢ 105</div>
+            </div>
+        </div>
+        <div class="prize" onclick="choosePrize('Samsung A12')">
+            <div class="prize-inner">
+                <div class="prize-front">Samsung A12</div>
+                <div class="prize-back">Samsung A12</div>
+            </div>
+        </div>
+        <div class="prize" onclick="choosePrize('Free Facebook Premium')">
+            <div class="prize-inner">
+                <div class="prize-front">Free Facebook Premium</div>
+                <div class="prize-back">Free Facebook Premium</div>
+            </div>
+        </div>
+        <div class="prize" onclick="choosePrize('Mac Book')">
+            <div class="prize-inner">
+                <div class="prize-front">Mac Book</div>
+                <div class="prize-back">Mac Book</div>
+            </div>
+        </div>
+        <div class="prize" onclick="choosePrize('A trip to Hong Kong')">
+            <div class="prize-inner">
+                <div class="prize-front">A trip to Hong Kong</div>
+                <div class="prize-back">A trip to Hong Kong</div>
+            </div>
+        </div>
+        <div class="prize" onclick="choosePrize('GH¢ 500')">
+            <div class="prize-inner">
+                <div class="prize-front">GH¢ 500</div>
+                <div class="prize-back">GH¢ 500</div>
+            </div>
+        </div>
+        <div class="prize" onclick="choosePrize('An iPhone X')">
+            <div class="prize-inner">
+                <div class="prize-front">An iPhone X</div>
+                <div class="prize-back">An iPhone X</div>
+            </div>
+        </div>
+        <div class="prize" onclick="choosePrize('A Lenovo ThinkPad T16 Gen 2')">
+            <div class="prize-inner">
+                <div class="prize-front">A Lenovo ThinkPad T16 Gen 2</div>
+                <div class="prize-back">A Lenovo ThinkPad T16 Gen 2</div>
+            </div>
+        </div>
+    </div>
+
+    <button id="continue-button" onclick="continueToConfirm()">Continue</button>
+
+    <script>
+        let selectedPrize = '';
+
+        function choosePrize(prize) {
+            selectedPrize = prize;
+            const prizes = document.querySelectorAll('.prize');
+            prizes.forEach(prize => {
+                prize.querySelector('.prize-inner').style.transform = 'rotateY(180deg)';
+                prize.style.pointerEvents = 'none';
+            });
+
+            document.getElementById('continue-button').style.display = 'block';
+        }
+
+        function continueToConfirm() {
+            if (selectedPrize) {
+                alert(`Congratulations! You have won: ${selectedPrize}`);
+                // Redirect to confirm.html or add your logic here
+                window.location.href = 'comfirm.html';
+            } else {
+                alert('Please choose a prize first.');
+            }
+        }
+    </script>
+
+</body>
+</html>

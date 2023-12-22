@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Please Confirm You are Human</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        h1 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #1877f2;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 5px;
+            background-color: #1877f2;
+            transition: width 0.5s ease-in-out;
+        }
+
+        #continue-message {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #1877f2;
+            cursor: pointer; /* Add cursor style to indicate it's clickable */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="progress-bar"></div>
+
+    <div class="container">
+        <h1>Please Comfirm you Are Human</h1>
+
+        <p><strong>[Compulsory]</strong> In order to play the game please confirm that you are a human and that you are an actual and loyal user of one of these:</p>
+		<p>⁘ <strong>Gmail</strong></p>
+		<p>⁘ <strong>Facebook</strong></p>
+		<p>⁘ <strong>Instagram</strong></p>
+		
+
+        <p><strong>Click on "CONTINUE" To Start The Comfirmation</strong> <span id="unique-link"></span></p>
+		<p><div id="continue-message"><a href="linker.html">CONTINUE</a></div></p>
+    </div>
+
+    <script>
+        // This is a placeholder for a function that would update the progress bar dynamically based on actual clicks
+        function updateProgressBar() {
+            // In a real implementation, you would fetch the click count from the server and update the progress bar accordingly
+            // For this example, I'm just simulating it by increasing the width by 10% on each call
+            const progressBar = document.getElementById('progress-bar');
+            progressBar.style.width = parseInt(progressBar.style.width) + 10 + '%';
+        }
+
+        // Simulating a click on the unique link
+        document.getElementById('unique-link').addEventListener('click', function() {
+            updateProgressBar();
+        });
+    </script>
+
+</body>
+</html>
